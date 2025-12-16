@@ -1,0 +1,65 @@
+.bottom {
+  background: #f59a2a;
+  height: 35vh;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
+}
+.bottom h1 {
+  font-size: 50px;
+}
+.bottom button {
+  background: black;
+  color: white;
+  padding: 14px;
+  font-size: 18px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.bottom a {
+  text-decoration: none;
+}
+
+@media (max-width: 500px) {
+  .bottom {
+    height: 25vh;
+  }
+  .bottom h1 {
+    font-size: 20px;
+    text-align: center;
+  }
+  .bottom button {
+    font-size: 12px;
+    padding: 10px;
+  }
+}
+@media (max-width: 768px) {
+  .bottom {
+    height: 28vh;
+  }
+  .bottom h1 {
+    font-size: 25px;
+    text-align: center;
+  }
+  .bottom button {
+    font-size: 12px;
+    padding: 10px;
+  }
+}
+@media (max-width: 1024px) {
+  .bottom {
+    height: 32vh;
+  }
+  .bottom h1 {
+    font-size: 30px;
+    text-align: center;
+  }
+  .bottom button {
+    font-size: 12px;
+    padding: 10px;
+  }
+}

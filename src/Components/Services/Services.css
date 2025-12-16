@@ -1,0 +1,220 @@
+.service {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.service h1 {
+  font-size: 35px;
+}
+.services {
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  margin-top: 30px;
+}
+.services h2 {
+  width: 90%;
+  margin: auto;
+}
+.services p {
+  line-height: 30px;
+  width: 80%;
+  margin: auto;
+  margin-top: 20px;
+}
+.contact {
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+  align-items: center;
+  text-align: left;
+}
+.contact h1 {
+  margin-bottom: 20px;
+}
+.coverS {
+  position: relative; /* Make the div a positioned element */
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: url("https://images.pexels.com/photos/2612113/pexels-photo-2612113.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  z-index: 1; /* Ensure content is above the overlay */
+}
+
+.coverS::before {
+  content: "";
+  position: absolute; /* Position it absolutely within the parent */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+  z-index: -1; /* Place it below the content */
+}
+
+.coverS h1 {
+  font-size: 100px;
+  color: #d29954;
+  font-family: "Pacifico", cursive;
+  font-weight: 500;
+  font-style: normal;
+}
+.coverS h2 {
+  font-size: 60px;
+  color: #ffffff;
+  font-family: Helvetica, sans-serif;
+}
+
+.coverS h3 {
+  font-size: 25px;
+  color: #e5ceb1;
+  width: 50rem;
+  text-align: center;
+}
+@media (max-width: 1054px) {
+  .services {
+    width: 80%;
+  }
+  .coverS h1 {
+    font-size: 80px;
+    color: #d29954;
+    font-family: "Pacifico", cursive;
+    font-weight: 500;
+    font-style: normal;
+  }
+  .coverS h2 {
+    font-size: 50px;
+    color: #ffffff;
+    font-family: Helvetica, sans-serif;
+  }
+
+  .coverS h3 {
+    font-size: 25px;
+    color: #e5ceb1;
+    width: 35rem;
+    text-align: center;
+  }
+}
+@media (max-width: 500px) {
+  .services {
+    width: 100%;
+  }
+  .coverS {
+    position: relative; /* Make the div a positioned element */
+    height: 80vh;
+    width: 100%;
+    justify-content: center;
+  }
+  .coverS h1 {
+    font-size: 30px;
+    color: #d29954;
+    font-family: "Pacifico", cursive;
+    font-weight: 500;
+    font-style: normal;
+  }
+  .coverS h2 {
+    font-size: 25px;
+    color: #ffffff;
+    font-family: Helvetica, sans-serif;
+  }
+
+  .coverS h3 {
+    font-size: 15px;
+    color: #e5ceb1;
+    text-align: center;
+    width: 400px;
+  }
+}
+@media (min-width: 501px) and (max-width: 760) {
+  .services {
+    width: 90%;
+  }
+  .coverS {
+    position: relative; /* Make the div a positioned element */
+    height: 80vh;
+    width: 100%;
+  }
+  .coverS h1 {
+    font-size: 39px;
+    color: #d29954;
+    font-family: "Pacifico", cursive;
+    font-weight: 500;
+    font-style: normal;
+  }
+  .coverS h2 {
+    font-size: 30px;
+    color: #ffffff;
+    font-family: Helvetica, sans-serif;
+  }
+
+  .coverS h3 {
+    font-size: 15px;
+    color: #e5ceb1;
+    text-align: center;
+    width: 400px;
+  }
+}
+@media (max-width: 423px) {
+  .services {
+    width: 100%;
+  }
+  .coverS {
+    position: relative;
+    height: 80vh;
+    width: 100%;
+  }
+  .coverS h1 {
+    font-size: 30px;
+    color: #d29954;
+    font-family: "Pacifico", cursive;
+    font-weight: 500;
+    font-style: normal;
+  }
+  .coverS h2 {
+    font-size: 22px;
+    color: #ffffff;
+    font-family: Helvetica, sans-serif;
+  }
+
+  .coverS h3 {
+    font-size: 12px;
+    color: #e5ceb1;
+    text-align: center;
+    width: 200%px;
+  }
+}
+
+@media (min-width: 761px) and (max-width: 844px) {
+  .services {
+    width: 90%;
+  }
+  .coverS h1 {
+    font-size: 40px;
+    color: #d29954;
+    font-family: "Pacifico", cursive;
+    font-weight: 500;
+    font-style: normal;
+  }
+  .coverS h2 {
+    font-size: 30px;
+    color: #ffffff;
+    font-family: Helvetica, sans-serif;
+  }
+
+  .coverS h3 {
+    font-size: 20px;
+    color: #e5ceb1;
+    width: 35rem;
+    text-align: center;
+  }
+}

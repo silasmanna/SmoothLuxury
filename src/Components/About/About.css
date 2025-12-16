@@ -1,0 +1,225 @@
+.about {
+  text-align: center;
+  width: 80%;
+  margin: auto;
+  line-height: 1.6;
+  margin-top: 40px;
+}
+
+.about p {
+  margin-top: 30px;
+}
+
+.about h1 {
+  font-size: 2.5rem; /* Adjust font size for better scaling */
+}
+
+.video-wrapper {
+  width: 100%; /* Increase width for larger screens */
+  height: 60vh;
+  margin: 0 auto 20px;
+  position: relative;
+  padding-top: 28.25%; /* 16:9 Aspect Ratio */
+}
+
+.video-wrapper .video {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.about .contact a {
+  text-decoration: none;
+  color: inherit; /* To inherit the color from the parent element */
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+  align-items: center;
+  text-align: left;
+}
+
+.contact h1 {
+  margin-bottom: 20px;
+  font-size: 2rem; /* Adjust font size for better scaling */
+}
+
+.coverA {
+  position: relative; /* Make the div a positioned element */
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: url("https://images.pexels.com/photos/4353813/pexels-photo-4353813.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  z-index: 1; /* Ensure content is above the overlay */
+}
+
+.coverA::before {
+  content: "";
+  position: absolute; /* Position it absolutely within the parent */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+  z-index: -1; /* Place it below the content */
+}
+
+.coverA h1 {
+  font-size: 6rem; /* Adjust font size for better scaling */
+  color: #d29954;
+  font-family: "Pacifico", cursive;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.coverA h2 {
+  font-size: 4rem; /* Adjust font size for better scaling */
+  color: #ffffff;
+  font-family: Helvetica, sans-serif;
+}
+
+.coverA h3 {
+  font-size: 1.5rem; /* Adjust font size for better scaling */
+  color: #e5ceb1;
+  width: 50rem;
+  text-align: center;
+}
+
+@media (max-width: 1054px) {
+  .video-wrapper {
+    width: 100%; /* Increase width for larger screens */
+    height: 70vh;
+  }
+  .coverA h1 {
+    font-size: 4rem;
+  }
+  .coverA h2 {
+    font-size: 3rem;
+  }
+  .coverA h3 {
+    font-size: 1.5rem;
+    width: 35rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .about {
+    width: 90%;
+    margin-top: 20px;
+  }
+
+  .about h1 {
+    font-size: 1.5rem;
+  }
+
+  .video-wrapper {
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+  }
+
+  .coverA {
+    height: 60vh;
+  }
+
+  .coverA h1 {
+    font-size: 2rem;
+  }
+
+  .coverA h2 {
+    font-size: 1.5rem;
+  }
+
+  .coverA h3 {
+    font-size: 1rem;
+    width: 90%;
+  }
+}
+
+@media (min-width: 501px) and (max-width: 760px) {
+  .about {
+    width: 85%;
+  }
+
+  .video-wrapper {
+    width: 80%;
+  }
+
+  .coverA {
+    height: 70vh;
+  }
+
+  .coverA h1 {
+    font-size: 2.5rem;
+  }
+
+  .coverA h2 {
+    font-size: 2rem;
+  }
+
+  .coverA h3 {
+    font-size: 1.2rem;
+    width: 80%;
+  }
+}
+
+@media (max-width: 423px) {
+  .about {
+    width: 95%;
+    height: 70vh;
+  }
+
+  .about h1 {
+    font-size: 1.2rem;
+  }
+
+  .video-wrapper {
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+  }
+
+  .coverA {
+    height: 50vh;
+  }
+
+  .coverA h1 {
+    font-size: 1.5rem;
+  }
+
+  .coverA h2 {
+    font-size: 1rem;
+  }
+
+  .coverA h3 {
+    font-size: 0.8rem;
+    width: 90%;
+  }
+}
+
+@media (min-width: 761px) and (max-width: 844px) {
+  .coverA h1 {
+    font-size: 3rem;
+    color: #d29954;
+    font-family: "Pacifico", cursive;
+    font-weight: 500;
+    font-style: normal;
+  }
+  .coverA h2 {
+    font-size: 2rem;
+    color: #ffffff;
+    font-family: Helvetica, sans-serif;
+  }
+
+  .coverA h3 {
+    font-size: 1.2rem;
+    color: #e5ceb1;
+    width: 35rem;
+    text-align: center;
+  }
+}

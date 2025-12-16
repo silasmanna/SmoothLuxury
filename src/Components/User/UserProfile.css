@@ -1,0 +1,153 @@
+/* Container for the user details and profile picture */
+.user-details-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 60px); /* Adjust for the header and footer */
+  padding: 20px;
+}
+
+/* User details card */
+.user-details {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 80%; /* Adjusted to 80% of screen width */
+  max-width: 800px; /* Optional: Set a max-width for larger screens */
+  text-align: center; /* Center text within the container */
+}
+
+/* Heading */
+.user-details h1 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* User information */
+.user-details p {
+  font-size: 18px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.user-details p strong {
+  color: #333;
+}
+
+/* Profile picture container and styling */
+.profile-picture-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.profile-picture {
+  width: 200px; /* Increased size */
+  height: 200px; /* Increased size */
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid #ccc;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px; /* Increased margin for better spacing */
+}
+
+.profile-picture img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Placeholder for uploading */
+.upload-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+  text-align: center;
+}
+
+.upload-placeholder i {
+  font-size: 60px; /* Increased size */
+  color: #ccc;
+}
+
+/* Buttons */
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 30px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+#LoginBtn {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 40%;
+  align-items: center;
+  margin: auto;
+  gap: 30px;
+}
+
+/* Media Queries for Responsiveness */
+
+/* Tablets and small screens */
+@media (max-width: 768px) {
+  .user-details {
+    width: 90%; /* Adjust to fit smaller screens */
+  }
+
+  .profile-picture {
+    width: 150px; /* Adjust size */
+    height: 150px; /* Adjust size */
+  }
+
+  .user-details p {
+    font-size: 16px; /* Smaller text for better readability */
+  }
+
+  button {
+    padding: 8px 16px; /* Adjust button padding */
+  }
+}
+
+/* Mobile screens */
+@media (max-width: 480px) {
+  .user-details {
+    width: 95%; /* Adjust to fit very small screens */
+  }
+
+  .profile-picture {
+    width: 120px; /* Adjust size */
+    height: 120px; /* Adjust size */
+  }
+
+  .user-details p {
+    font-size: 14px; /* Smaller text for mobile */
+  }
+
+  button {
+    padding: 6px 12px; /* Adjust button padding */
+  }
+
+  #LoginBtn {
+    width: 80%; /* Adjust width for small screens */
+  }
+}

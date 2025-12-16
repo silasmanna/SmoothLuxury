@@ -1,0 +1,167 @@
+/* styles.css */
+.cover {
+  position: relative; /* Make the div a positioned element */
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: url("https://images.pexels.com/photos/1098745/pexels-photo-1098745.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  z-index: 1; /* Ensure content is above the overlay */
+}
+
+.cover::before {
+  content: "";
+  position: absolute; /* Position it absolutely within the parent */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+  z-index: -1; /* Place it below the content */
+}
+
+.cover h1 {
+  font-size: 100px;
+  color: #d29954;
+  font-family: "Pacifico", cursive;
+  font-weight: 500;
+  font-style: normal;
+}
+.cover h2 {
+  font-size: 60px;
+  color: #ffffff;
+  font-family: "Pacifico", Helvetica, sans-serif;
+}
+
+.cover h3 {
+  font-size: 25px;
+  color: #e5ceb1;
+  width: 50rem;
+  text-align: center;
+}
+@media (max-width: 1054px) {
+  .cover h1 {
+    font-size: 80px;
+    color: #d29954;
+    font-family: "Pacifico", cursive;
+    font-weight: 500;
+    font-style: normal;
+  }
+  .cover h2 {
+    font-size: 50px;
+    color: #ffffff;
+    font-family: "Pacifico", Helvetica, sans-serif;
+  }
+
+  .cover h3 {
+    font-size: 25px;
+    color: #e5ceb1;
+    width: 35rem;
+    text-align: center;
+  }
+}
+@media (max-width: 500px) {
+  .cover {
+    position: relative; /* Make the div a positioned element */
+    height: 80vh;
+    width: 100%;
+    justify-content: center;
+  }
+  .cover h1 {
+    font-size: 40px;
+    color: #d29954;
+    font-family: "Pacifico", cursive;
+    font-weight: 500;
+    font-style: normal;
+  }
+  .cover h2 {
+    font-size: 40px;
+    color: #ffffff;
+    font-family: "Pacifico", Helvetica, sans-serif;
+  }
+
+  .cover h3 {
+    font-size: 15px;
+    color: #e5ceb1;
+    text-align: center;
+    width: 400px;
+  }
+}
+@media (min-width: 501px) and (max-width: 760) {
+  .cover {
+    position: relative; /* Make the div a positioned element */
+    height: 80vh;
+    width: 100%;
+  }
+  .cover h1 {
+    font-size: 25px;
+    color: #d29954;
+    font-family: "Pacifico", cursive;
+    font-weight: 500;
+    font-style: normal;
+  }
+  .cover h2 {
+    font-size: 40px;
+    color: #ffffff;
+    font-family: "Pacifico", Helvetica, sans-serif;
+  }
+
+  .cover h3 {
+    font-size: 15px;
+    color: #e5ceb1;
+    text-align: center;
+    width: 400px;
+  }
+}
+@media (max-width: 423px) {
+  .cover {
+    position: relative;
+    height: 80vh;
+    width: 100%;
+  }
+  .cover h1 {
+    font-size: 35px;
+    color: #d29954;
+    font-family: "Pacifico", cursive;
+    font-weight: 500;
+    font-style: normal;
+  }
+  .cover h2 {
+    font-size: 30px;
+    color: #ffffff;
+    font-family: "Pacifico", Helvetica, sans-serif;
+  }
+
+  .cover h3 {
+    font-size: 12px;
+    color: #e5ceb1;
+    text-align: center;
+    width: 200%px;
+  }
+}
+
+@media (min-width: 761px) and (max-width: 844px) {
+  .cover h1 {
+    font-size: 70px;
+    color: #d29954;
+    font-family: "Pacifico", cursive;
+    font-weight: 500;
+    font-style: normal;
+  }
+  .cover h2 {
+    font-size: 50px;
+    color: #ffffff;
+    font-family: "Pacifico", Helvetica, sans-serif;
+  }
+
+  .cover h3 {
+    font-size: 20px;
+    color: #e5ceb1;
+    width: 35rem;
+    text-align: center;
+  }
+}

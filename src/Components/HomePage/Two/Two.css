@@ -1,0 +1,33 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 40px;
+  padding-top: 25px;
+  background: #ecdbc5;
+  padding-bottom: 50px;
+  width: 80%;
+  margin: auto;
+}
+.main h1 {
+  font-size: 60px;
+  font-family: Helvetica, sans-serif;
+  text-align: center;
+}
+.main p {
+  font-size: 20px;
+  font-family: Helvetica, sans-serif;
+  text-align: center;
+}
+@media (max-width: 500px) {
+  .main h1 {
+    font-size: 30px;
+  }
+  .main p {
+    font-size: 13px;
+  }
+  .main h1 {
+    font-size: 30px;
+  }
+}

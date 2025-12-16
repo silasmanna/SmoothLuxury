@@ -1,0 +1,36 @@
+.last {
+  text-align: center;
+  margin-top: 30px;
+}
+.last h1 {
+  font-size: 30px;
+  font-weight: 1000;
+  font-family: Helvetica;
+}
+.last p {
+  width: 80%;
+  margin: auto;
+  line-height: 30px;
+  font-size: 20px;
+  font-family: Helvetica;
+}
+.last p li {
+  list-style: decimal;
+  text-align: left;
+}
+@media (max-width: 500px) {
+  .last h1 {
+    font-size: 25px;
+  }
+  .last p {
+    font-size: 10px;
+  }
+}
+@media (max-width: 768px) {
+  .last h1 {
+    font-size: 25px;
+  }
+  .last p {
+    font-size: 15px;
+  }
+}
