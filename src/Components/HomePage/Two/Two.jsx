@@ -5,30 +5,21 @@ const Two = () => {
   return (
     <>
       <div className="main">
-        <h1>Travel Smoothly</h1>
+        <h1>Travel With Less Stress</h1>
         <p>
-          Let’s face it, travel and travel arrangements have never been easy,
-          whether you're traveling within your home country or internationally.
-          From planning a trip to understanding the nuances of different
-          destinations, it takes time and effort to navigate today's heightened
-          health and security considerations. <br />
-          At Smooth Luxury Logistics, we specialize in seamless travel
-          experiences for all destinations—home and abroad—with a particular
-          emphasis on the USA. Whether you're traveling to, from, or within the
-          United States, our expert concierge teams are here to guide you every
-          step of the way. <br />
-          We also offer dedicated services for international and local students
-          arriving in the USA. From helping you find suitable housing to
-          providing local area orientation and understanding transportation
-          options, we ensure that settling down in your new environment is
-          smooth and stress-free. Whether you’re starting university or
-          embarking on a new chapter, we are here to guide you in making the
-          transition as seamless as possible. <br />
-          From planning to departure, we ensure you ‘Travel Smoothly,’
-          eliminating the stress and uncertainty of unreliable travel
-          information or arrangements. Let us handle the details, so you can
-          focus on enjoying your journey or settling into your new academic
-          life.
+          International travel can be exciting, but it often comes with
+          uncertainty, paperwork, delays, and unfamiliar arrival procedures.
+          Smooth Luxury Logistics helps simplify that experience with reliable,
+          hands-on support before, during, and after your trip. <br />
+          We serve travelers going to Nigeria, the USA, and other international
+          destinations with practical guidance, airport support, concierge
+          coordination, and premium transportation solutions tailored to each
+          journey. <br />
+          We also support students settling into life in the USA by helping
+          with housing guidance, transportation planning, and local orientation
+          so they can begin their academic journey with confidence. <br />
+          Our goal is simple: remove the friction from travel and help you move
+          with ease, peace of mind, and the right support at every step.
         </p>
       </div>
     </>

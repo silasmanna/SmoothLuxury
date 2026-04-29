@@ -2,11 +2,15 @@
 
 .navMain {
   display: flex;
-  justify-content: space-around;
-  border-bottom: solid 2px rgb(60, 58, 58);
-  border-bottom-width: 4px;
+  justify-content: space-between;
   align-items: center;
   background: #ecdbc5;
+  padding: 0 32px;
+  min-height: 88px;
+  border-bottom: 3px solid rgba(60, 58, 58, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 20;
 }
 
 .navMain img {
@@ -20,13 +24,17 @@
 .linksMain {
   display: flex;
   list-style-type: none;
-  justify-content: space-between;
-  gap: 70px;
+  align-items: center;
+  gap: clamp(16px, 3vw, 42px);
 }
 
 .linksMain li {
-  padding: 10px;
+  list-style: none;
+  padding: 10px 14px;
   font-size: 16px; /* Ensure font size is consistent */
+  font-weight: 600;
+  border-radius: 999px;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .linksMain li:hover {
@@ -38,18 +46,19 @@
 .linksMain a {
   text-decoration: none; /* Remove underline from links */
   color: inherit; /* Inherit text color from parent */
+  display: block;
 }
 
 .nav-dropdown {
   display: none;
+  cursor: pointer;
 }
 
 /* Tablet view adjustments */
 @media (max-width: 844px) {
   .navMain {
-    justify-content: space-between;
     gap: 20px; /* Adjust gap for tablet view */
-    padding: 0 10px; /* Add padding for better spacing */
+    padding: 0 16px; /* Add padding for better spacing */
   }
 
   .linksMain {
@@ -64,9 +73,8 @@
 
 @media (max-width: 500px) {
   .navMain {
-    width: 100%;
-    justify-content: space-between;
     gap: 0;
+    min-height: 82px;
   }
 
   .linksMain {
@@ -79,9 +87,11 @@
     justify-content: center;
     text-align: center;
     flex-direction: column;
-    padding: 10px;
-    top: 79px; /* Adjust this if necessary */
+    padding: 14px 16px 18px;
+    top: 82px; /* Adjust this if necessary */
     left: 0; /* Ensure dropdown aligns with the left edge */
+    border-bottom: 1px solid rgba(60, 58, 58, 0.15);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.12);
     z-index: 7;
   }
 
@@ -98,10 +108,11 @@
   .linksMain li {
     padding: 15px; /* Increase padding to fill the space better */
     font-size: 18px; /* Adjust font size for better readability */
+    width: 100%;
   }
 
   .linksMain li:hover {
-    background: none;
-    color: rgb(0, 0, 0);
+    background: #d97a07;
+    color: #fff;
   }
 }

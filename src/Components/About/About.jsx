@@ -10,7 +10,7 @@ const About = () => {
     <>
       <Top />
       <div className="about">
-        <h1>About</h1>
+        <h1>About Smooth Luxury Logistics</h1>
         <div className="video-wrapper">
           <ReactPlayer
             url="https://www.youtube.com/watch?v=Q2UBMnesM3E"
@@ -20,52 +20,44 @@ const About = () => {
           />
         </div>
         <p>
-          At Smooth Luxury Logistics, we provide a full spectrum of
-          international travel consulting and concierge services to ensure your
-          journey is seamless from start to finish. We understand that
-          navigating travel logistics in today’s world can be complex, with new
-          challenges emerging every day. Whether you're traveling for business,
-          leisure, or relocating abroad, our expert team is here to guide you
-          every step of the way.
+          Smooth Luxury Logistics is a travel support and concierge company
+          focused on helping clients move internationally with greater ease,
+          confidence, and comfort. We understand that modern travel often
+          involves more than booking a flight. It requires planning, timing,
+          coordination, and trusted local guidance.
         </p>
         <p>
-          Our services cover a wide range of global destinations, helping you
-          plan and execute your travel experience smoothly, no matter where
-          you're headed. We offer personalized travel assistance that
-          encompasses every aspect of your trip — from booking flights and
-          luxury transportation to providing local guidance upon arrival. Our
-          goal is to eliminate the stress and uncertainty of travel, ensuring
-          that you can focus on what matters most: enjoying your journey.
+          Our work centers on practical, premium support for travelers going to
+          Nigeria, the USA, and other international destinations. Depending on
+          your needs, that may include visa guidance, airport facilitation,
+          meet-and-greet support, transportation coordination, and broader
+          travel assistance designed around your itinerary.
         </p>
         <p>
-          For students traveling to the USA or those already there, we offer
-          specialized support to ensure a smooth transition into your new
-          environment. From securing accommodation to navigating your new city
-          and campus, our team is dedicated to making sure you feel comfortable
-          and confident in your new surroundings. We assist with transportation,
-          orientation, and the essential details that make settling down easier
-          so that you can focus on your studies and personal growth.
+          We also provide dedicated support for students transitioning to life
+          in the USA. From housing guidance and transportation planning to local
+          orientation and settling-in assistance, we help make the adjustment to
+          a new environment more manageable and less overwhelming.
         </p>
         <p>
-          Whether you’re preparing for a business trip, planning a vacation, or
-          relocating for academic purposes, Smooth Luxury Logistics is your
-          trusted partner in global travel. We provide tailored services that
-          align with your unique needs, offering VIP treatment and first-class
-          support no matter where you’re traveling. Let us handle the details of
-          your travel so you can relax and focus on what lies ahead.
+          Whether you are traveling for business, personal reasons, relocation,
+          or study, our goal is to make your journey more organized and less
+          stressful. We combine attentive service with real-world travel
+          coordination so you can focus on the purpose of your trip while we
+          help manage the logistics around it.
         </p>
 
         <div className="contact">
           <h1>Contact Us</h1>
-          <h3>Address (USA): 8707 Harford Rd Suite A4 Parkville, MD 21234</h3>
+          <h3>USA Office: 8707 Harford Rd Suite A4, Parkville, MD 21234</h3>
           <h3>
-            Address (Nigeria): 40f Oba Dosumu Street, GRA Ikeja Lagos, Nigeria
+            Nigeria Office: 40F Oba Dosumu Street, GRA Ikeja, Lagos, Nigeria
           </h3>
           <a href="mailto:info@smoothluxurylogistics.com, admin@kedrickscribnerfoundation.org">
             <h3>Email: info@smoothluxurylogistics.com</h3>
           </a>
           <a href="tel:443-956-0723">
-            <h3>Phone: 443-956-0723</h3>
+            <h3>Phone: +1 (443) 956-0723</h3>
           </a>
         </div>
       </div>

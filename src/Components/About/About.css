@@ -1,6 +1,6 @@
 .about {
   text-align: center;
-  width: 80%;
+  width: min(1120px, calc(100% - 32px));
   margin: auto;
   line-height: 1.6;
   margin-top: 40px;
@@ -16,10 +16,9 @@
 
 .video-wrapper {
   width: 100%; /* Increase width for larger screens */
-  height: 60vh;
   margin: 0 auto 20px;
   position: relative;
-  padding-top: 28.25%; /* 16:9 Aspect Ratio */
+  padding-top: 56.25%; /* 16:9 Aspect Ratio */
 }
 
 .video-wrapper .video {
@@ -48,7 +47,7 @@
 
 .coverA {
   position: relative; /* Make the div a positioned element */
-  height: 80vh;
+  min-height: 80vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -57,7 +56,9 @@
   background-size: cover;
   background-position: center;
   width: 100%;
-  z-index: 1; /* Ensure content is above the overlay */
+  padding: 48px 24px;
+  text-align: center;
+  isolation: isolate;
 }
 
 .coverA::before {
@@ -95,7 +96,6 @@
 @media (max-width: 1054px) {
   .video-wrapper {
     width: 100%; /* Increase width for larger screens */
-    height: 70vh;
   }
   .coverA h1 {
     font-size: 4rem;
@@ -111,7 +111,7 @@
 
 @media (max-width: 500px) {
   .about {
-    width: 90%;
+    width: calc(100% - 24px);
     margin-top: 20px;
   }
 
@@ -125,7 +125,7 @@
   }
 
   .coverA {
-    height: 60vh;
+    min-height: 60vh;
   }
 
   .coverA h1 {
@@ -171,8 +171,7 @@
 
 @media (max-width: 423px) {
   .about {
-    width: 95%;
-    height: 70vh;
+    width: calc(100% - 20px);
   }
 
   .about h1 {
@@ -185,7 +184,7 @@
   }
 
   .coverA {
-    height: 50vh;
+    min-height: 50vh;
   }
 
   .coverA h1 {

@@ -6,18 +6,15 @@ const One = () => {
     <>
       <div className="cover">
         <h1>Smooth Luxury Logistics</h1>
-        <h2>Global Travel Consulting & VIP Concierge Services</h2>
+        <h2>Global Travel Consulting and VIP Concierge Services</h2>
         <h3>
-          SLL is a premier international travel consultant and concierge
-          service. We specialize in seamless travel experiences, offering
-          personalized VIP assistance, global destination expertise, and
-          first-class support for both business and leisure travelers worldwide.{" "}
+          Smooth Luxury Logistics delivers tailored travel support for business
+          travelers, families, executives, and students who need a smoother
+          international experience from departure to arrival.{" "}
           <br />
-          Additionally, we provide tailored services for international and local
-          students, helping them navigate and settle into their new environment,
-          especially within the USA. From housing and transportation assistance
-          to local area orientation, we ensure a smooth transition into their
-          academic journey.
+          From immigration guidance and airport assistance to luxury ground
+          transportation and student transition support in the USA, we handle
+          the details so you can travel with confidence, comfort, and clarity.
         </h3>
       </div>
     </>

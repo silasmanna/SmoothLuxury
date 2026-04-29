@@ -1,21 +1,28 @@
+.third {
+  width: min(1120px, calc(100% - 32px));
+  margin: 40px auto 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
 .one,
 .two,
 .three {
   background: #725c3f;
-  width: 50%;
-  height: 45vh;
-  margin: auto;
-  margin-top: 50px;
+  width: 100%;
+  min-height: 100%;
   border-radius: 20px;
   display: flex;
   color: white;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 20px; /* Adjusted padding for better fit */
-  gap: 20px; /* Adjusted gap to fit content */
+  justify-content: flex-start;
+  align-items: flex-start;
+  text-align: left;
+  padding: 28px; /* Adjusted padding for better fit */
+  gap: 16px; /* Adjusted gap to fit content */
   line-height: 1.5; /* Adjust line-height for better readability */
+  box-shadow: 0 18px 42px rgba(32, 19, 8, 0.16);
 }
 
 .one h1,
@@ -24,13 +31,25 @@
   font-size: 24px; /* Ensure all h1 elements are the same size */
   line-height: 1.3; /* Adjusted line-height for better fit */
   margin: 0; /* Remove default margin */
+  color: #f7d7ab;
+}
+
+.one p,
+.two p,
+.three p {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.92);
 }
 
 @media (max-width: 844px) {
+  .third {
+    grid-template-columns: 1fr;
+  }
+
   .one,
   .two,
   .three {
-    width: 80%;
+    width: 100%;
     height: auto; /* Allow height to adjust automatically */
     font-size: 14px; /* Adjust font size for tablet view */
     padding: 20px; /* Maintain padding but ensure content fits */
@@ -45,11 +64,17 @@
 }
 
 @media (max-width: 500px) {
+  .third {
+    width: calc(100% - 24px);
+    margin-top: 24px;
+    gap: 16px;
+  }
+
   .one,
   .two,
   .three {
     width: 100%;
-    border-radius: 0;
+    border-radius: 18px;
     font-size: 13px; /* Adjust font size for mobile view */
     padding: 15px; /* Reduce padding for smaller screens */
     gap: 10px; /* Adjust gap for mobile view */

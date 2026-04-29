@@ -1,36 +1,60 @@
 .last {
   text-align: center;
-  margin-top: 30px;
+  margin: 32px auto 0;
+  width: min(1120px, calc(100% - 32px));
+  background: #fffaf3;
+  border-radius: 24px;
+  padding: 36px 32px;
+  box-shadow: 0 18px 45px rgba(62, 39, 15, 0.08);
 }
 .last h1 {
-  font-size: 30px;
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
   font-weight: 1000;
   font-family: Helvetica;
+  color: #6e4f2f;
 }
 .last p {
-  width: 80%;
+  width: min(100%, 70rem);
   margin: auto;
-  line-height: 30px;
-  font-size: 20px;
+  margin-top: 18px;
+  line-height: 1.9;
+  font-size: clamp(1rem, 2vw, 1.15rem);
   font-family: Helvetica;
 }
-.last p li {
+.last-list {
+  width: min(100%, 70rem);
+  margin: 18px auto 0;
+  padding-left: 22px;
+  text-align: left;
+  line-height: 1.9;
+  font-size: clamp(1rem, 2vw, 1.12rem);
+}
+.last-list li {
   list-style: decimal;
   text-align: left;
+  margin-bottom: 14px;
+}
+.last strong {
+  color: #6e4f2f;
 }
 @media (max-width: 500px) {
+  .last {
+    width: calc(100% - 24px);
+    padding: 28px 16px;
+    border-radius: 18px;
+    margin-top: 20px;
+  }
+
   .last h1 {
     font-size: 25px;
-  }
-  .last p {
-    font-size: 10px;
   }
 }
 @media (max-width: 768px) {
-  .last h1 {
-    font-size: 25px;
-  }
   .last p {
+    font-size: 15px;
+  }
+
+  .last-list {
     font-size: 15px;
   }
 }

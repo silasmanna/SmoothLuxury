@@ -6,7 +6,7 @@
   font-family: Arial, sans-serif;
 }
 
-h1 {
+.faq-container h1 {
   text-align: center;
   margin-bottom: 20px;
 }
@@ -45,7 +45,7 @@ h1 {
 /* Background cover styles */
 .coverF {
   position: relative; /* Make the div a positioned element */
-  height: 80vh;
+  min-height: 80vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -54,7 +54,9 @@ h1 {
   background-size: cover;
   background-position: center;
   width: 100%;
-  z-index: 1; /* Ensure content is above the overlay */
+  padding: 48px 24px;
+  text-align: center;
+  isolation: isolate;
 }
 
 .coverF::before {
@@ -115,10 +117,8 @@ h1 {
 
 @media (max-width: 500px) {
   .coverF {
-    position: relative; /* Make the div a positioned element */
-    height: 80vh;
-    width: 100%;
-    justify-content: center;
+    min-height: 72vh;
+    padding: 40px 16px;
   }
 
   .coverF h1 {
@@ -139,7 +139,7 @@ h1 {
     font-size: 15px;
     color: #e5ceb1;
     text-align: center;
-    width: 400px;
+    width: min(100%, 400px);
   }
 }
 
@@ -174,9 +174,7 @@ h1 {
 
 @media (max-width: 423px) {
   .coverF {
-    position: relative;
-    height: 80vh;
-    width: 100%;
+    min-height: 70vh;
   }
 
   .coverF h1 {
@@ -198,7 +196,7 @@ h1 {
     font-size: 12px;
     color: #e5ceb1;
     text-align: center;
-    width: 200%;
+    width: 100%;
   }
 }
 
