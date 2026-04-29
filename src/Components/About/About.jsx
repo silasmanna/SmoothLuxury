@@ -1,68 +1,84 @@
 import React from "react";
 import ReactPlayer from "react-player";
-import One from "../HomePage/One/One";
-import Top from "./Top";
 import "./About.css";
-import Bottom from "../HomePage/Bottom/Bottom";
 
 const About = () => {
   return (
-    <>
-      <Top />
-      <div className="about">
-        <h1>About Smooth Luxury Logistics</h1>
-        <div className="video-wrapper">
-          <ReactPlayer
-            url="https://www.youtube.com/watch?v=Q2UBMnesM3E"
-            className="video"
-            width="100%"
-            height="100%"
-          />
-        </div>
-        <p>
-          Smooth Luxury Logistics is a travel support and concierge company
-          focused on helping clients move internationally with greater ease,
-          confidence, and comfort. We understand that modern travel often
-          involves more than booking a flight. It requires planning, timing,
-          coordination, and trusted local guidance.
-        </p>
-        <p>
-          Our work centers on practical, premium support for travelers going to
-          Nigeria, the USA, and other international destinations. Depending on
-          your needs, that may include visa guidance, airport facilitation,
-          meet-and-greet support, transportation coordination, and broader
-          travel assistance designed around your itinerary.
-        </p>
-        <p>
-          We also provide dedicated support for students transitioning to life
-          in the USA. From housing guidance and transportation planning to local
-          orientation and settling-in assistance, we help make the adjustment to
-          a new environment more manageable and less overwhelming.
-        </p>
-        <p>
-          Whether you are traveling for business, personal reasons, relocation,
-          or study, our goal is to make your journey more organized and less
-          stressful. We combine attentive service with real-world travel
-          coordination so you can focus on the purpose of your trip while we
-          help manage the logistics around it.
-        </p>
-
-        <div className="contact">
-          <h1>Contact Us</h1>
-          <h3>USA Office: 8707 Harford Rd Suite A4, Parkville, MD 21234</h3>
-          <h3>
-            Nigeria Office: 40F Oba Dosumu Street, GRA Ikeja, Lagos, Nigeria
-          </h3>
-          <a href="mailto:info@smoothluxurylogistics.com, admin@kedrickscribnerfoundation.org">
-            <h3>Email: info@smoothluxurylogistics.com</h3>
-          </a>
-          <a href="tel:443-956-0723">
-            <h3>Phone: +1 (443) 956-0723</h3>
-          </a>
+    <div className="about-page animate-fade-in">
+      <div className="about-hero">
+        <div className="about-hero-content text-center">
+          <h1>About Us</h1>
+          <p>Redefining luxury travel, logistics, and global security.</p>
         </div>
       </div>
-      <Bottom />
-    </>
+
+      <div className="container section-padding">
+        <div className="about-grid">
+          <div className="about-text animate-slide-up">
+            <h2>Our Mission</h2>
+            <p>
+              Smooth Luxury Logistics is a premier travel support and concierge company
+              focused on helping clients move internationally with greater ease,
+              confidence, and absolute comfort. We understand that modern elite travel requires 
+              more than simply booking a flight—it demands precise planning, perfect timing,
+              flawless coordination, and trusted local guidance.
+            </p>
+            <p>
+              Whether you are an executive traveling to Nigeria, a family touring the USA, 
+              or a student transitioning to a new environment, our goal is to remove the friction 
+              from your journey.
+            </p>
+            
+            <h3 className="mt-4">The Police Protective Group Partnership</h3>
+            <p>
+              Security is paramount. That is why we operate in an exclusive partnership with the 
+              <strong> Police Protective Group</strong>. Their decades of law enforcement and specialized 
+              tactical experience guarantee our clients the highest tier of private security, available 
+              in the USA, Nigeria, and worldwide.
+            </p>
+          </div>
+          
+          <div className="about-video-container glass-card animate-slide-up delay-1">
+            <div className="video-wrapper">
+              <ReactPlayer
+                url="https://www.youtube.com/watch?v=Q2UBMnesM3E"
+                className="video"
+                width="100%"
+                height="100%"
+                controls
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="about-contact-section">
+        <div className="container section-padding">
+          <div className="contact-grid">
+            <div className="contact-info animate-slide-up">
+              <h2>Contact Our Offices</h2>
+              <p>Our concierge and security teams are available to assist you 24/7.</p>
+              
+              <div className="office-card mt-4">
+                <h4>USA Headquarters</h4>
+                <p>8707 Harford Rd Suite A4<br />Parkville, MD 21234</p>
+                <a href="tel:443-956-0723" className="contact-link">+1 (443) 956-0723</a>
+              </div>
+              
+              <div className="office-card mt-4">
+                <h4>Nigeria Office</h4>
+                <p>40F Oba Dosumu Street<br />GRA Ikeja, Lagos, Nigeria</p>
+              </div>
+
+              <div className="office-card mt-4">
+                <h4>General Inquiries</h4>
+                <a href="mailto:info@smoothluxurylogistics.com" className="contact-link">info@smoothluxurylogistics.com</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 

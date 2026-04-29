@@ -1,70 +1,49 @@
 import React from "react";
 import "./Last.css";
 
+const reasons = [
+  {
+    title: "Global Expertise",
+    description: "Whether you are navigating the complexities of Visa on Arrival in Nigeria or requiring elite security detail in the USA, our team possesses the localized knowledge to guarantee a seamless experience.",
+    icon: "🌐"
+  },
+  {
+    title: "Uncompromising Privacy",
+    description: "We understand the value of discretion. Our services, from armored transport to close-protection, are designed to keep your movements secure and private.",
+    icon: "🔒"
+  },
+  {
+    title: "Bespoke Solutions",
+    description: "We do not offer one-size-fits-all packages. Every itinerary, vehicle selection, and security plan is meticulously tailored to your specific schedule and risk profile.",
+    icon: "✨"
+  },
+  {
+    title: "24/7 Concierge Support",
+    description: "Our dedicated support team is available around the clock to handle unexpected changes, flight delays, or sudden itinerary additions.",
+    icon: "⏱️"
+  }
+];
+
 const Last = () => {
   return (
-    <>
-      <div className="last">
-        <h1>How We Work</h1>
-        <p>
-          Smooth Luxury Logistics combines concierge care, travel coordination,
-          and on-the-ground support to make each journey more organized and less
-          overwhelming. We work with travelers who value reliability,
-          professionalism, and a smoother experience from planning to arrival.{" "}
-          <br />
-          In Nigeria, we help coordinate arrival support, immigration guidance,
-          and transportation logistics so clients can move through the airport
-          and into the city with confidence. <br />
-          Internationally, we provide structured guidance, planning support, and
-          practical travel assistance. We also offer dedicated transition
-          support for students relocating to the USA, including orientation,
-          transportation planning, and settling-in guidance.
-        </p>
+    <section className="why-choose-us section-padding">
+      <div className="container">
+        <div className="section-header text-center animate-slide-up">
+          <h2 className="section-title">Why Choose Smooth Luxury</h2>
+          <p className="section-subtitle">Excellence, discretion, and reliability at every touchpoint.</p>
+        </div>
+
+        <div className="reasons-grid">
+          {reasons.map((reason, index) => (
+            <div key={index} className={`reason-card animate-slide-up delay-${(index % 4) + 1}`}>
+              <div className="reason-icon">{reason.icon}</div>
+              <h3>{reason.title}</h3>
+              <p>{reason.description}</p>
+            </div>
+          ))}
+        </div>
       </div>
-      <div className="last">
-        <h1>What We Do</h1>
-        <p>
-          We support travelers with services designed to remove friction from
-          international movement. That includes visa guidance, Visa on Arrival
-          coordination for Nigeria, airport facilitation, premium transportation
-          arrangements, and selected travel planning support. <br />
-          For travelers outside Nigeria, we focus on providing informed support,
-          useful direction, and dependable coordination rather than one-size-
-          fits-all advice. <br />
-          For students heading to the USA, we help make the transition into a
-          new city and school environment easier through practical settling
-          support and local guidance.
-        </p>
-      </div>
-      <div className="last">
-        <h1>What You Can Expect</h1>
-        <ol className="last-list">
-          <li>
-            <strong>Arrival support:</strong> Organized airport assistance and
-            clear guidance to help reduce confusion and delays on arrival.
-          </li>
-          <li>
-            <strong>Comfortable transportation:</strong> Premium ground
-            transportation options arranged around your travel schedule and
-            destination needs.
-          </li>
-          <li>
-            <strong>Travel coordination:</strong> Assistance with the moving
-            pieces of your journey so your experience feels more structured and
-            less stressful.
-          </li>
-          <li>
-            <strong>Student transition support:</strong> Help with settling into
-            life in the USA, including housing guidance, transportation
-            planning, and local orientation.
-          </li>
-          <li>
-            <strong>Flexible service options:</strong> Support tailored to your
-            itinerary, travel purpose, and level of assistance required.
-          </li>
-        </ol>
-      </div>
-    </>
+    </section>
   );
 };
 

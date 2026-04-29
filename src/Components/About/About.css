@@ -1,224 +1,146 @@
-.about {
-  text-align: center;
-  width: min(1120px, calc(100% - 32px));
-  margin: auto;
-  line-height: 1.6;
-  margin-top: 40px;
+.about-hero {
+  height: 40vh;
+  min-height: 300px;
+  background: linear-gradient(rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.9)), url('../../../assets/hero_bg.png') center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid var(--glass-border);
 }
 
-.about p {
-  margin-top: 30px;
+.about-hero-content h1 {
+  font-size: 3.5rem;
+  color: var(--gold);
+  margin-bottom: 1rem;
 }
 
-.about h1 {
-  font-size: 2.5rem; /* Adjust font size for better scaling */
+.about-hero-content p {
+  font-size: 1.2rem;
+  color: var(--white-muted);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.about-text h2 {
+  font-size: 2.5rem;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+}
+
+.about-text h3 {
+  font-size: 1.5rem;
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+
+.about-text p {
+  color: var(--white-muted);
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.8;
+}
+
+.about-video-container {
+  padding: 1rem;
+  border-radius: 12px;
 }
 
 .video-wrapper {
-  width: 100%; /* Increase width for larger screens */
-  margin: 0 auto 20px;
   position: relative;
   padding-top: 56.25%; /* 16:9 Aspect Ratio */
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 .video-wrapper .video {
   position: absolute;
   top: 0;
   left: 0;
-}
-
-.about .contact a {
-  text-decoration: none;
-  color: inherit; /* To inherit the color from the parent element */
-}
-
-.contact {
-  display: flex;
-  flex-direction: column;
-  margin-top: 40px;
-  align-items: center;
-  text-align: left;
-}
-
-.contact h1 {
-  margin-bottom: 20px;
-  font-size: 2rem; /* Adjust font size for better scaling */
-}
-
-.coverA {
-  position: relative; /* Make the div a positioned element */
-  min-height: 80vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-image: url("https://images.pexels.com/photos/4353813/pexels-photo-4353813.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
-  background-size: cover;
-  background-position: center;
-  width: 100%;
-  padding: 48px 24px;
-  text-align: center;
-  isolation: isolate;
-}
-
-.coverA::before {
-  content: "";
-  position: absolute; /* Position it absolutely within the parent */
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
-  z-index: -1; /* Place it below the content */
 }
 
-.coverA h1 {
-  font-size: 6rem; /* Adjust font size for better scaling */
-  color: #d29954;
-  font-family: "Pacifico", cursive;
-  font-weight: 500;
-  font-style: normal;
+.about-contact-section {
+  background-color: var(--black-2);
+  border-top: 1px solid var(--glass-border);
 }
 
-.coverA h2 {
-  font-size: 4rem; /* Adjust font size for better scaling */
-  color: #ffffff;
-  font-family: Helvetica, sans-serif;
+.contact-grid {
+  display: flex;
+  justify-content: center;
 }
 
-.coverA h3 {
-  font-size: 1.5rem; /* Adjust font size for better scaling */
-  color: #e5ceb1;
-  width: 50rem;
+.contact-info {
+  max-width: 800px;
+  width: 100%;
   text-align: center;
 }
 
-@media (max-width: 1054px) {
-  .video-wrapper {
-    width: 100%; /* Increase width for larger screens */
-  }
-  .coverA h1 {
-    font-size: 4rem;
-  }
-  .coverA h2 {
-    font-size: 3rem;
-  }
-  .coverA h3 {
-    font-size: 1.5rem;
-    width: 35rem;
+.contact-info h2 {
+  font-size: 2.5rem;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+
+.contact-info > p {
+  color: var(--white-muted);
+  margin-bottom: 3rem;
+  font-size: 1.1rem;
+}
+
+.office-card {
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  padding: 2rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.office-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--gold);
+}
+
+.office-card h4 {
+  font-size: 1.3rem;
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+
+.office-card p {
+  color: var(--white-muted);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.contact-link {
+  display: inline-block;
+  color: var(--gold);
+  font-size: 1.1rem;
+  margin-top: 0.5rem;
+}
+
+.contact-link:hover {
+  color: var(--gold-light);
+  text-decoration: underline;
+}
+
+@media (max-width: 900px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
   }
 }
 
-@media (max-width: 500px) {
-  .about {
-    width: calc(100% - 24px);
-    margin-top: 20px;
-  }
-
-  .about h1 {
-    font-size: 1.5rem;
-  }
-
-  .video-wrapper {
-    width: 100%;
-    padding-top: 56.25%; /* 16:9 Aspect Ratio */
-  }
-
-  .coverA {
-    min-height: 60vh;
-  }
-
-  .coverA h1 {
-    font-size: 2rem;
-  }
-
-  .coverA h2 {
-    font-size: 1.5rem;
-  }
-
-  .coverA h3 {
-    font-size: 1rem;
-    width: 90%;
-  }
-}
-
-@media (min-width: 501px) and (max-width: 760px) {
-  .about {
-    width: 85%;
-  }
-
-  .video-wrapper {
-    width: 80%;
-  }
-
-  .coverA {
-    height: 70vh;
-  }
-
-  .coverA h1 {
-    font-size: 2.5rem;
-  }
-
-  .coverA h2 {
-    font-size: 2rem;
-  }
-
-  .coverA h3 {
-    font-size: 1.2rem;
-    width: 80%;
-  }
-}
-
-@media (max-width: 423px) {
-  .about {
-    width: calc(100% - 20px);
-  }
-
-  .about h1 {
-    font-size: 1.2rem;
-  }
-
-  .video-wrapper {
-    width: 100%;
-    padding-top: 56.25%; /* 16:9 Aspect Ratio */
-  }
-
-  .coverA {
-    min-height: 50vh;
-  }
-
-  .coverA h1 {
-    font-size: 1.5rem;
-  }
-
-  .coverA h2 {
-    font-size: 1rem;
-  }
-
-  .coverA h3 {
-    font-size: 0.8rem;
-    width: 90%;
-  }
-}
-
-@media (min-width: 761px) and (max-width: 844px) {
-  .coverA h1 {
-    font-size: 3rem;
-    color: #d29954;
-    font-family: "Pacifico", cursive;
-    font-weight: 500;
-    font-style: normal;
-  }
-  .coverA h2 {
-    font-size: 2rem;
-    color: #ffffff;
-    font-family: Helvetica, sans-serif;
-  }
-
-  .coverA h3 {
-    font-size: 1.2rem;
-    color: #e5ceb1;
-    width: 35rem;
-    text-align: center;
+@media (max-width: 768px) {
+  .about-hero-content h1 {
+    font-size: 2.8rem;
   }
 }

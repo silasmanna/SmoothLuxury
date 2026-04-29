@@ -21,70 +21,78 @@ const Footer = () => {
   };
 
   return (
-    <div className="footer">
-      <div className="footer-logo">
-        <img src={footer_logo} alt="Logo" />
+    <footer className="footer">
+      <div className="container footer-container">
+        <div className="footer-top">
+          <div className="footer-brand">
+            <img src={footer_logo} alt="Smooth Luxury Logistics Logo" className="footer-logo" />
+            <p className="footer-description">
+              Elevating international travel with premium concierge support, security detail, and seamless logistics worldwide.
+            </p>
+            <div className="footer-socials">
+              <a href="https://instagram.com/smooth.luxury.logistics" target="_blank" rel="noopener noreferrer">
+                <img src={instagram} alt="Instagram" />
+              </a>
+              <a href="https://twitter.com/smoothLuxuryLog" target="_blank" rel="noopener noreferrer">
+                <img src={x} alt="X" />
+              </a>
+              <a href="https://facebook.com/smoothluxurylogisticsLtd" target="_blank" rel="noopener noreferrer">
+                <img src={fb} alt="Facebook" />
+              </a>
+              <a href="https://wa.me/14439560723" target="_blank" rel="noopener noreferrer">
+                <img src={whatsapp_icon} alt="WhatsApp" />
+              </a>
+            </div>
+          </div>
+          
+          <div className="footer-links-group">
+            <h4>Company</h4>
+            <ul>
+              <li><Link to="/">Home</Link></li>
+              <li><Link to="/about">About Us</Link></li>
+              <li><Link to="/faq">FAQ</Link></li>
+              <li><Link to="/register">Register</Link></li>
+              <li><Link to="/login">Login</Link></li>
+            </ul>
+          </div>
+          
+          <div className="footer-links-group">
+            <h4>Services</h4>
+            <ul>
+              <li><Link to="/services">All Services</Link></li>
+              <li><Link to="/fleet">Luxury Fleet</Link></li>
+              <li><Link to="/security">Security Detail</Link></li>
+              <li><Link to="/tours">Guided Tours</Link></li>
+              <li><span onClick={handleApplyClick} className="footer-apply-btn">Apply for Visa</span></li>
+            </ul>
+          </div>
+          
+          <div className="footer-contact">
+            <h4>Contact Us</h4>
+            <div className="contact-item">
+              <strong>USA Office:</strong>
+              <p>8707 Harford Rd Suite A4, Parkville, MD 21234</p>
+            </div>
+            <div className="contact-item">
+              <strong>Nigeria Office:</strong>
+              <p>40F Oba Dosumu Street, GRA Ikeja, Lagos, Nigeria</p>
+            </div>
+            <div className="contact-item">
+              <strong>Email:</strong>
+              <p><a href="mailto:info@smoothluxurylogistics.com">info@smoothluxurylogistics.com</a></p>
+            </div>
+            <div className="contact-item">
+              <strong>Phone:</strong>
+              <p><a href="tel:443-956-0723">+1 (443) 956-0723</a></p>
+            </div>
+          </div>
+        </div>
+        
+        <div className="footer-bottom">
+          <p>&copy; {new Date().getFullYear()} Smooth Luxury Logistics. All Rights Reserved.</p>
+        </div>
       </div>
-      <ul className="footer-links">
-        <Link to="/">
-          <li>Home</li>
-        </Link>
-        <Link to="/about">
-          <li>About</li>
-        </Link>
-        <Link to="/FAQ">
-          <li>FAQ</li>
-        </Link>
-        <Link to="/services">
-          <li>Services</li>
-        </Link>
-        <li onClick={handleApplyClick} style={{ cursor: "pointer" }}>
-          Apply
-        </li>
-      </ul>
-      <div className="footer-social-icons">
-        <div className="footer-icons-container">
-          <a
-            href="https://instagram.com/smooth.luxury.logistics"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img className="icon" src={instagram} alt="Instagram" />
-          </a>
-        </div>
-        <div className="footer-icons-container">
-          <a
-            href="https://twitter.com/smoothLuxuryLog"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img className="icon" src={x} alt="X" />
-          </a>
-        </div>
-        <div className="footer-icons-container">
-          <a
-            href="https://facebook.com/smoothluxurylogisticsLtd"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img className="icon" src={fb} alt="Facebook" />
-          </a>
-        </div>
-        <div className="footer-icons-container">
-          <a
-            href="https://wa.me/14439560723"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img className="icon" src={whatsapp_icon} alt="WhatsApp" />
-          </a>
-        </div>
-      </div>
-      <div className="footer-copyright">
-        <hr />
-        <p>Copyright 2024 @ Smooth Luxury Logistics - All Rights Reserved</p>
-      </div>
-    </div>
+    </footer>
   );
 };
 

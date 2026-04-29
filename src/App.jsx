@@ -13,6 +13,9 @@ import UserDetails from "./Components/User/UserProfile";
 import VisaApplicationForm from "./Components/User/VisaForm";
 import ConfirmEmail from "./Components/RegisterLogin/ConfirmEmail";
 import PaymentPage from "./Components/User/PaymentPage";
+import Fleet from "./Components/Fleet/Fleet";
+import Security from "./Components/Security/Security";
+import Tours from "./Components/Tours/Tours";
 
 function App() {
   return (
@@ -25,6 +28,9 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/visa-form" element={<VisaApplicationForm />} />
             <Route path="/services" element={<Services />} />
+            <Route path="/fleet" element={<Fleet />} />
+            <Route path="/security" element={<Security />} />
+            <Route path="/tours" element={<Tours />} />
             <Route path="/faq" element={<Faq />} />
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />

@@ -8,8 +8,10 @@ import "./NavBar.css";
 const NavBar = () => {
   const menuRef = useRef();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isLightMode, setIsLightMode] = useState(false);
   const location = useLocation();
-  const { isAuthenticated, setIsAuthenticated } = useAuth();
+  const { isAuthenticated, logout } = useAuth();
   const navigate = useNavigate();
 
   const dropdown_toggle = (e) => {
@@ -18,8 +20,7 @@ const NavBar = () => {
   };
 
   const handleLogout = () => {
-    setIsAuthenticated(false);
-    localStorage.removeItem("token"); // Assuming token is stored in localStorage
+    logout();
     navigate("/login");
   };
 
@@ -31,160 +32,67 @@ const NavBar = () => {
     }
   };
 
-  // Close the menu when the route changes
+  const toggleTheme = () => {
+    setIsLightMode(!isLightMode);
+    document.body.classList.toggle("light-mode");
+  };
+
   useEffect(() => {
     setIsMenuOpen(false);
   }, [location]);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <>
-      <div className="navMain">
-        <div className="logoMain">
-          <Link to="/">
-            <img src={logo} alt="Logo" />
-          </Link>
-        </div>
+    <nav className={`navbar ${isScrolled ? "scrolled" : ""}`}>
+      <div className="container nav-container">
+        <Link to="/" className="nav-logo">
+          <img src={logo} alt="Smooth Luxury Logistics" />
+        </Link>
+        
         <img
-          className="nav-dropdown"
+          className={`nav-dropdown ${isMenuOpen ? "open" : ""}`}
           onClick={dropdown_toggle}
           src={nav_dropdown}
           alt="Menu"
         />
-        <div
-          ref={menuRef}
-          className={`linksMain ${isMenuOpen ? "linksMain-visible" : ""}`}
-        >
-          <Link to="/">
-            <li>Home</li>
-          </Link>
-          <Link to="/about">
-            <li>About</li>
-          </Link>
-          <Link to="/faq">
-            <li>FAQ</li>
-          </Link>
-          <Link to="/services">
-            <li>Services</li>
-          </Link>
-          <li onClick={handleApplyClick} style={{ cursor: "pointer" }}>
-            Apply
-          </li>
-          {!isAuthenticated && (
-            <>
-              <Link to="/register">
-                <li>Register</li>
-              </Link>
-              <Link to="/login">
-                <li>Login</li>
-              </Link>
-            </>
-          )}
-          {isAuthenticated && (
-            <>
-              <Link to="/user">
-                <li>My Profile</li>
-              </Link>
-              <li onClick={handleLogout} style={{ cursor: "pointer" }}>
-                Logout
-              </li>
-            </>
-          )}
-        </div>
+        
+        <ul ref={menuRef} className={`nav-links ${isMenuOpen ? "visible" : ""}`}>
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/about">About</Link></li>
+          <li><Link to="/services">Services</Link></li>
+          <li><Link to="/fleet">Fleet</Link></li>
+          <li><Link to="/security">Security</Link></li>
+          <li><Link to="/tours">Tours</Link></li>
+          <li><Link to="/faq">FAQ</Link></li>
+          
+          <div className="nav-auth">
+            <button onClick={toggleTheme} className="theme-toggle nav-link-subtle" title="Toggle Theme">
+              {isLightMode ? "🌙" : "☀️"}
+            </button>
+            {!isAuthenticated ? (
+              <>
+                <Link to="/login" className="nav-link-subtle">Login</Link>
+                <button onClick={handleApplyClick} className="btn-primary">Apply</button>
+              </>
+            ) : (
+              <>
+                <Link to="/user" className="nav-link-subtle">My Profile</Link>
+                <button onClick={handleLogout} className="nav-link-subtle">Logout</button>
+                <button onClick={handleApplyClick} className="btn-primary">Apply</button>
+              </>
+            )}
+          </div>
+        </ul>
       </div>
-    </>
+    </nav>
   );
 };
 
 export default NavBar;
-
-// // NavBar.js
-// import React, { useRef, useEffect, useState } from "react";
-// import { Link, useLocation, useNavigate } from "react-router-dom";
-// import { useAuth } from "../../AuthProvider";
-// import logo from "./logo.png";
-// import nav_dropdown from "./ham-nbg.png";
-// import "./NavBar.css";
-
-// const NavBar = () => {
-//   const menuRef = useRef();
-//   const [isMenuOpen, setIsMenuOpen] = useState(false);
-//   const location = useLocation();
-//   const { isAuthenticated, setIsAuthenticated } = useAuth();
-//   const navigate = useNavigate();
-
-//   const dropdown_toggle = (e) => {
-//     setIsMenuOpen((prev) => !prev);
-//     e.target.classList.toggle("open");
-//   };
-
-//   const handleLogout = () => {
-//     setIsAuthenticated(false);
-//     localStorage.removeItem("token"); // Assuming token is stored in localStorage
-//     navigate("/login");
-//   };
-
-//   // Close the menu when the route changes
-//   useEffect(() => {
-//     setIsMenuOpen(false);
-//   }, [location]);
-
-//   return (
-//     <>
-//       <div className="navMain">
-//         <div className="logoMain">
-//           <Link to="/">
-//             <img src={logo} alt="Logo" />
-//           </Link>
-//         </div>
-//         <img
-//           className="nav-dropdown"
-//           onClick={dropdown_toggle}
-//           src={nav_dropdown}
-//           alt="Menu"
-//         />
-//         <div
-//           ref={menuRef}
-//           className={`linksMain ${isMenuOpen ? "linksMain-visible" : ""}`}
-//         >
-//           <Link to="/">
-//             <li>Home</li>
-//           </Link>
-//           <Link to="/about">
-//             <li>About</li>
-//           </Link>
-//           <Link to="/faq">
-//             <li>FAQ</li>
-//           </Link>
-//           <Link to="/services">
-//             <li>Services</li>
-//           </Link>
-//           <Link to="/visa-form">
-//             <li>Apply</li>
-//           </Link>
-//           {!isAuthenticated && (
-//             <>
-//               <Link to="/register">
-//                 <li>Register</li>
-//               </Link>
-//               <Link to="/login">
-//                 <li>Login</li>
-//               </Link>
-//             </>
-//           )}
-//           {isAuthenticated && (
-//             <>
-//               <Link to="/user">
-//                 <li>My Profile</li>
-//               </Link>
-//               <li onClick={handleLogout} style={{ cursor: "pointer" }}>
-//                 Logout
-//               </li>
-//             </>
-//           )}
-//         </div>
-//       </div>
-//     </>
-//   );
-// };
-
-// export default NavBar;

@@ -1,120 +1,167 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useAuth } from "../../AuthProvider";
-import "./Register.css";
+import "./Auth.css";
 
 const Register = () => {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const { setIsAuthenticated } = useAuth();
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
+  const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
   const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setErrorMsg("");
 
-    if (password !== confirmPassword) {
-      alert("Passwords do not match");
+    if (formData.password !== formData.confirmPassword) {
+      setErrorMsg("Passwords do not match");
       return;
     }
 
-    try {
-      console.log("Submitting registration:", {
-        firstName,
-        lastName,
-        email,
-        password,
-      });
+    setLoading(true);
 
+    try {
       const response = await fetch("https://db.eneyiclothings.com/users", {
-        // const response = await fetch("http://localhost:3000/users", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ firstName, lastName, email, password }),
+        body: JSON.stringify({ 
+          firstName: formData.firstName, 
+          lastName: formData.lastName, 
+          email: formData.email, 
+          password: formData.password 
+        }),
       });
 
-      console.log("Response status:", response.status);
-
       if (response.ok) {
-        const data = await response.json();
-        alert(
-          data.message ||
-            "User registered successfully, proceed to confirm email"
-        );
         navigate("/confirm-email");
       } else {
         const errorData = await response.json();
-        console.error("Error data:", errorData);
-        alert(errorData.message || "Error registering user");
+        setErrorMsg(errorData.message || "Error registering user");
       }
     } catch (err) {
-      console.error("Error registering user:", err);
-      alert("Error registering user");
+      setErrorMsg("Error registering user. Please check your connection.");
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
-    <>
-      <div className="full-background"></div>
-      <div className="register-container">
-        <h1>Register</h1>
-        <form onSubmit={handleSubmit}>
-          <label>
-            First Name:
-            <input
-              type="text"
-              value={firstName}
-              onChange={(e) => setFirstName(e.target.value)}
-              required
-            />
-          </label>
-          <label>
-            Last Name:
-            <input
-              type="text"
-              value={lastName}
-              onChange={(e) => setLastName(e.target.value)}
-              required
-            />
-          </label>
-          <label>
-            Email:
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-          </label>
-          <label>
-            Password:
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-          </label>
-          <label>
-            Confirm Password:
-            <input
-              type="password"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-              required
-            />
-          </label>
-          <button type="submit">Register</button>
-          <button>
-            <Link to="/login">Already Have an Account</Link>
-          </button>
-        </form>
+    <div className="auth-page animate-fade-in">
+      <div className="container">
+        <div className="auth-wrapper glass-card large">
+          <div className="auth-header text-center">
+            <h2>Create an Account</h2>
+            <p>Join Smooth Luxury Logistics to manage your premium travel.</p>
+          </div>
+          
+          {errorMsg && (
+            <div className="inline-message error">
+              <span>⚠️</span>
+              <p>{errorMsg}</p>
+            </div>
+          )}
+
+          <form onSubmit={handleSubmit} className="auth-form">
+            <div className="form-grid">
+              <div className="form-group">
+                <label>First Name</label>
+                <input
+                  type="text"
+                  name="firstName"
+                  value={formData.firstName}
+                  onChange={handleChange}
+                  required
+                  disabled={loading}
+                />
+              </div>
+              <div className="form-group">
+                <label>Last Name</label>
+                <input
+                  type="text"
+                  name="lastName"
+                  value={formData.lastName}
+                  onChange={handleChange}
+                  required
+                  disabled={loading}
+                />
+              </div>
+            </div>
+            
+            <div className="form-group">
+              <label>Email Address</label>
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+                disabled={loading}
+              />
+            </div>
+            
+            <div className="form-group">
+              <label>Password</label>
+              <div className="input-wrapper">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  name="password"
+                  value={formData.password}
+                  onChange={handleChange}
+                  required
+                  disabled={loading}
+                />
+                <button 
+                  type="button"
+                  className="password-toggle"
+                  onClick={() => setShowPassword(!showPassword)}
+                  tabIndex="-1"
+                >
+                  {showPassword ? "👁️‍🗨️" : "👁️"}
+                </button>
+              </div>
+            </div>
+
+            <div className="form-group">
+              <label>Confirm Password</label>
+              <div className="input-wrapper">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  name="confirmPassword"
+                  value={formData.confirmPassword}
+                  onChange={handleChange}
+                  required
+                  disabled={loading}
+                />
+              </div>
+            </div>
+            
+            <button type="submit" className="btn-primary auth-submit-btn mt-4" disabled={loading}>
+              {loading ? <span className="spinner spinner-sm"></span> : "Register"}
+            </button>
+          </form>
+          
+          <div className="auth-footer text-center">
+            <p>Already have an account? <Link to="/login" className="text-gold">Login</Link></p>
+          </div>
+        </div>
       </div>
-    </>
+    </div>
   );
 };
 

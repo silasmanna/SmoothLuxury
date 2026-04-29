@@ -1,224 +1,109 @@
-/* General FAQ Styles */
+.faq-hero {
+  height: 40vh;
+  min-height: 300px;
+  background: linear-gradient(rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.9)), url('../../../assets/tour_us.png') center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.faq-hero-content h1 {
+  font-size: 3.5rem;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+
+.faq-hero-content p {
+  font-size: 1.2rem;
+  color: var(--white-muted);
+}
+
 .faq-container {
   max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-  font-family: Arial, sans-serif;
-}
-
-.faq-container h1 {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.faq {
+  margin: 0 auto 5rem;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 1.5rem;
 }
 
 .faq-item {
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  overflow: hidden;
-  transition: all 0.3s ease;
+  padding: 1.5rem 2rem;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.faq-item:hover {
+  border-color: rgba(201, 168, 76, 0.5);
 }
 
 .faq-question {
-  padding: 15px;
-  background-color: #c5baae; /* Updated color */
-  cursor: pointer;
-  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.faq-question.active {
-  background-color: #d97a07; /* Active color */
-  color: white;
+.faq-question h3 {
+  font-size: 1.2rem;
+  color: var(--white);
+  margin: 0;
+  padding-right: 2rem;
+}
+
+.faq-toggle {
+  font-size: 1.8rem;
+  color: var(--gold);
+  font-weight: 300;
+  transition: transform 0.3s ease;
 }
 
 .faq-answer {
-  padding: 15px;
-  background-color: white;
-  border-top: 1px solid #ccc;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.4s ease, opacity 0.4s ease;
+  opacity: 0;
 }
 
-/* Background cover styles */
-.coverF {
-  position: relative; /* Make the div a positioned element */
-  min-height: 80vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-image: url("https://images.pexels.com/photos/7648050/pexels-photo-7648050.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=11");
-  background-size: cover;
-  background-position: center;
-  width: 100%;
-  padding: 48px 24px;
-  text-align: center;
-  isolation: isolate;
+.faq-answer.show {
+  max-height: 200px; /* Adjust based on content */
+  padding-top: 1.5rem;
+  opacity: 1;
 }
 
-.coverF::before {
-  content: "";
-  position: absolute; /* Position it absolutely within the parent */
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
-  z-index: -1; /* Place it below the content */
+.faq-answer p {
+  color: var(--white-muted);
+  font-size: 1rem;
+  line-height: 1.6;
+  border-top: 1px solid var(--glass-border);
+  padding-top: 1.5rem;
 }
 
-.coverF h1 {
-  font-size: 100px;
-  color: #d29954;
-  font-family: "Pacifico", cursive;
-  font-weight: 500;
-  font-style: normal;
+.faq-cta {
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  padding: 4rem 2rem;
+  border-radius: 8px;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
-.coverF h2 {
-  font-size: 60px;
-  color: #ffffff;
-  font-family: Helvetica, sans-serif;
+.faq-cta h3 {
+  font-size: 2rem;
+  color: var(--gold);
+  margin-bottom: 1rem;
 }
 
-.coverF h3 {
-  font-size: 25px;
-  color: #e5ceb1;
-  width: 50rem;
-  text-align: center;
+.faq-cta p {
+  color: var(--white-muted);
+  margin-bottom: 1rem;
 }
 
-/* Responsive styles */
-@media (max-width: 1054px) {
-  .coverF h1 {
-    font-size: 80px;
-    color: #d29954;
-    font-family: "Pacifico", cursive;
-    font-weight: 500;
-    font-style: normal;
+@media (max-width: 768px) {
+  .faq-hero-content h1 {
+    font-size: 2.8rem;
   }
-
-  .coverF h2 {
-    font-size: 50px;
-    color: #ffffff;
-    font-family: Helvetica, sans-serif;
-  }
-
-  .coverF h3 {
-    font-size: 25px;
-    color: #e5ceb1;
-    width: 35rem;
-    text-align: center;
-  }
-}
-
-@media (max-width: 500px) {
-  .coverF {
-    min-height: 72vh;
-    padding: 40px 16px;
-  }
-
-  .coverF h1 {
-    font-size: 30px;
-    color: #d29954;
-    font-family: "Pacifico", cursive;
-    font-weight: 500;
-    font-style: normal;
-  }
-
-  .coverF h2 {
-    font-size: 22px;
-    color: #ffffff;
-    font-family: Helvetica, sans-serif;
-  }
-
-  .coverF h3 {
-    font-size: 15px;
-    color: #e5ceb1;
-    text-align: center;
-    width: min(100%, 400px);
-  }
-}
-
-@media (min-width: 501px) and (max-width: 760px) {
-  .coverF {
-    position: relative; /* Make the div a positioned element */
-    height: 80vh;
-    width: 100%;
-  }
-
-  .coverF h1 {
-    font-size: 25px;
-    color: #d29954;
-    font-family: "Pacifico", cursive;
-    font-weight: 500;
-    font-style: normal;
-  }
-
-  .coverF h2 {
-    font-size: 40px;
-    color: #ffffff;
-    font-family: Helvetica, sans-serif;
-  }
-
-  .coverF h3 {
-    font-size: 15px;
-    color: #e5ceb1;
-    text-align: center;
-    width: 400px;
-  }
-}
-
-@media (max-width: 423px) {
-  .coverF {
-    min-height: 70vh;
-  }
-
-  .coverF h1 {
-    font-size: 35px;
-    color: #d29954;
-    font-family: "Pacifico", cursive;
-    font-weight: 500;
-    font-style: normal;
-  }
-
-  .coverF h2 {
-    font-size: 20px;
-    color: #ffffff;
-    font-family: Helvetica, sans-serif;
-    text-align: center;
-  }
-
-  .coverF h3 {
-    font-size: 12px;
-    color: #e5ceb1;
-    text-align: center;
-    width: 100%;
-  }
-}
-
-@media (min-width: 761px) and (max-width: 844px) {
-  .coverF h1 {
-    font-size: 70px;
-    color: #d29954;
-    font-family: "Pacifico", cursive;
-    font-weight: 500;
-    font-style: normal;
-  }
-
-  .coverF h2 {
-    font-size: 35px;
-    color: #ffffff;
-    font-family: Helvetica, sans-serif;
-  }
-
-  .coverF h3 {
-    font-size: 20px;
-    color: #e5ceb1;
-    width: 35rem;
-    text-align: center;
+  
+  .faq-item {
+    padding: 1.5rem;
   }
 }

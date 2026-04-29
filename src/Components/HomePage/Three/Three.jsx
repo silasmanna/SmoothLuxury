@@ -1,48 +1,46 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Three.css";
+import armoredSuv from "../../../assets/armored_suv.png";
+import securityImg from "../../../assets/security_detail.png";
 
 const Three = () => {
   return (
-    <>
-      <div className="third">
-        <div className="one">
-          <h1>Immigration Support</h1>
-          <p>
-            Traveling to Nigeria? We help streamline the Visa on Arrival
-            process by guiding document preparation, coordinating submissions,
-            and helping reduce avoidable delays. <br />
-            For other destinations, we provide practical visa guidance,
-            planning support, and trusted direction so you can begin your trip
-            better informed and better prepared.
-          </p>
-        </div>
-        <div className="two">
-          <h1>Meet and Greet</h1>
-          <p>
-            Our Meet and Greet service is designed to make arrival feel calm,
-            organized, and professional. In Nigeria, we assist travelers
-            through airport procedures, from arrival coordination to baggage and
-            exit support. <br />
-            For other destinations, we offer arrival guidance and preparation
-            support to help you move through unfamiliar airports with greater
-            confidence.
-          </p>
-        </div>
-        <div className="three">
-          <h1>Luxury Transportation</h1>
-          <p>
-            Travel in comfort with premium ground transportation arranged around
-            your itinerary. In Nigeria, we coordinate dependable luxury SUV
-            service with professional drivers for airport pickups, meetings, and
-            private travel.{" "}
-            <br />
-            For international destinations, we help arrange trusted transport
-            options that match your schedule, preferences, and comfort level so
-            you can move smoothly from one stop to the next.
-          </p>
+    <section className="teaser-section section-padding">
+      <div className="container">
+        <div className="teaser-grid">
+          
+          <div className="teaser-card glass-card animate-slide-up">
+            <div className="teaser-img-wrapper">
+              <img src={armoredSuv} alt="Luxury Fleet" />
+            </div>
+            <div className="teaser-content">
+              <h3>Unmatched Luxury Fleet</h3>
+              <p>
+                From premium SUVs to B6/B7 armored vehicles, our fleet guarantees comfort, privacy, and safety. 
+                Whether you need an airport transfer or daily use with a private driver, we have the perfect vehicle.
+              </p>
+              <Link to="/fleet" className="btn-outline">Explore Fleet</Link>
+            </div>
+          </div>
+
+          <div className="teaser-card glass-card animate-slide-up delay-1">
+            <div className="teaser-img-wrapper">
+              <img src={securityImg} alt="Elite Security Detail" />
+            </div>
+            <div className="teaser-content">
+              <h3>Elite Security Detail</h3>
+              <p>
+                In exclusive partnership with the <strong>Police Protective Group</strong>, we provide world-class 
+                close-protection and security escort services for executives and VIPs globally.
+              </p>
+              <Link to="/security" className="btn-outline">Learn More</Link>
+            </div>
+          </div>
+
         </div>
       </div>
-    </>
+    </section>
   );
 };
 

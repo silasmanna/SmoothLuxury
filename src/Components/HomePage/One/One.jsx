@@ -1,23 +1,25 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./One.css";
 
 const One = () => {
   return (
-    <>
-      <div className="cover">
-        <h1>Smooth Luxury Logistics</h1>
-        <h2>Global Travel Consulting and VIP Concierge Services</h2>
-        <h3>
-          Smooth Luxury Logistics delivers tailored travel support for business
-          travelers, families, executives, and students who need a smoother
-          international experience from departure to arrival.{" "}
-          <br />
-          From immigration guidance and airport assistance to luxury ground
-          transportation and student transition support in the USA, we handle
-          the details so you can travel with confidence, comfort, and clarity.
-        </h3>
+    <div className="hero-section">
+      <div className="hero-overlay"></div>
+      <div className="container hero-content animate-fade-in">
+        <h1 className="hero-title animate-slide-up">
+          Elevate Your <br />
+          <span className="text-gold">International Travel</span>
+        </h1>
+        <p className="hero-subtitle animate-slide-up delay-1">
+          Premium concierge support, luxury transportation, and elite security detail for discerning travelers worldwide.
+        </p>
+        <div className="hero-actions animate-slide-up delay-2">
+          <Link to="/visa-form" className="btn-primary">Apply Now</Link>
+          <Link to="/services" className="btn-outline">Explore Services</Link>
+        </div>
       </div>
-    </>
+    </div>
   );
 };
 

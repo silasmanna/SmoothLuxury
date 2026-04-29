@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useAuth } from "../../AuthProvider";
 import { useDropzone } from "react-dropzone";
+import { useNavigate } from "react-router-dom";
 import "./UserProfile.css";
 
 const UserDetails = () => {
@@ -8,11 +9,17 @@ const UserDetails = () => {
   const [profilePicture, setProfilePicture] = useState(null);
   const [file, setFile] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
-  const { isAuthenticated } = useAuth();
+  const [uploadLoading, setUploadLoading] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
+  const [successMsg, setSuccessMsg] = useState("");
+  const { isAuthenticated, logout } = useAuth();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchUserDetails = async () => {
       const token = localStorage.getItem("token");
+      if (!token) return;
+
       const response = await fetch("https://db.eneyiclothings.com/users/me", {
         method: "GET",
         headers: {
@@ -42,6 +49,9 @@ const UserDetails = () => {
   const onDrop = (acceptedFiles) => {
     const file = acceptedFiles[0];
     setFile(file);
+    setIsEditing(true);
+    setErrorMsg("");
+    setSuccessMsg("");
 
     const reader = new FileReader();
     reader.onload = () => {
@@ -52,6 +62,10 @@ const UserDetails = () => {
 
   const handleUpload = async () => {
     if (!file) return;
+
+    setUploadLoading(true);
+    setErrorMsg("");
+    setSuccessMsg("");
 
     const formData = new FormData();
     formData.append("profilePicture", file);
@@ -71,65 +85,122 @@ const UserDetails = () => {
 
       if (response.ok) {
         const data = await response.json();
-        alert("Profile picture updated successfully!");
+        setSuccessMsg("Profile picture updated successfully!");
         setProfilePicture(`https://db.eneyiclothings.com/${data.filePath}`);
         setFile(null);
         setIsEditing(false);
       } else {
-        console.error("Error uploading file:", response.statusText);
+        setErrorMsg("Error uploading file");
       }
     } catch (error) {
+      setErrorMsg("Error uploading file. Check connection.");
       console.error("Error uploading file:", error);
+    } finally {
+      setUploadLoading(false);
     }
   };
 
   const { getRootProps, getInputProps } = useDropzone({
     onDrop,
     multiple: false,
-    accept: "image/*",
+    accept: { "image/*": [] },
   });
+
+  const handleLogout = () => {
+    logout();
+    navigate("/login");
+  };
 
   if (!isAuthenticated) {
     return (
-      <div id="LoginBtn" className="user-details-container">
-        <h3>Please log in to see your details.</h3>
+      <div className="auth-page animate-fade-in">
+        <div className="container text-center">
+          <h2 className="text-gold mb-4">Access Denied</h2>
+          <p className="text-white-muted mb-4">Please log in to view your profile.</p>
+          <button className="btn-primary" onClick={() => navigate("/login")}>Go to Login</button>
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="user-details-container">
-      {user ? (
-        <div className="user-details">
-          <h1>User Information</h1>
-          <div className="profile-picture-container" {...getRootProps()}>
-            <input {...getInputProps()} />
-            {profilePicture ? (
-              <img
-                src={profilePicture}
-                alt="Profile"
-                className="profile-picture"
-              />
-            ) : (
-              <div className="upload-placeholder">
-                <i className="cloud icon"></i>
-                <p>Upload Profile Picture</p>
-              </div>
-            )}
+    <div className="profile-page animate-fade-in">
+      <div className="container section-padding">
+        <div className="profile-wrapper glass-card">
+          <div className="profile-header">
+            <h2>Account Profile</h2>
+            <button className="btn-outline logout-btn" onClick={handleLogout}>Log Out</button>
           </div>
-          <button onClick={isEditing ? handleUpload : () => setIsEditing(true)}>
-            {isEditing ? "Change" : "Upload"}
-          </button>
-          <p>
-            <strong>Name:</strong> {user.first_name} {user.last_name}
-          </p>
-          <p>
-            <strong>Email:</strong> {user.email}
-          </p>
+
+          {errorMsg && (
+            <div className="inline-message error">
+              <span>⚠️</span>
+              <p>{errorMsg}</p>
+            </div>
+          )}
+          
+          {successMsg && (
+            <div className="inline-message success">
+              <span>✓</span>
+              <p>{successMsg}</p>
+            </div>
+          )}
+
+          {user ? (
+            <div className="profile-content">
+              <div className="profile-sidebar">
+                <div className="profile-picture-container" {...getRootProps()} style={{ pointerEvents: uploadLoading ? 'none' : 'auto', opacity: uploadLoading ? 0.6 : 1 }}>
+                  <input {...getInputProps()} />
+                  {profilePicture ? (
+                    <img
+                      src={profilePicture}
+                      alt="Profile"
+                      className="profile-picture"
+                    />
+                  ) : (
+                    <div className="upload-placeholder">
+                      <span className="upload-icon">📷</span>
+                      <p>Click or drag to upload</p>
+                    </div>
+                  )}
+                  <div className="profile-picture-overlay">
+                    <span>Change Photo</span>
+                  </div>
+                </div>
+                
+                {isEditing && (
+                  <button className="btn-primary upload-btn mt-4" onClick={handleUpload} disabled={uploadLoading}>
+                    {uploadLoading ? <span className="spinner spinner-sm"></span> : "Save New Photo"}
+                  </button>
+                )}
+              </div>
+
+              <div className="profile-details">
+                <div className="detail-group">
+                  <label>First Name</label>
+                  <p>{user.first_name || "Not provided"}</p>
+                </div>
+                <div className="detail-group">
+                  <label>Last Name</label>
+                  <p>{user.last_name || "Not provided"}</p>
+                </div>
+                <div className="detail-group">
+                  <label>Email Address</label>
+                  <p>{user.email}</p>
+                </div>
+                <div className="detail-group">
+                  <label>Account Status</label>
+                  <p className="status-badge">Active</p>
+                </div>
+              </div>
+            </div>
+          ) : (
+            <div className="text-center py-5">
+              <p className="text-white-muted">Loading your profile data...</p>
+            </div>
+          )}
         </div>
-      ) : (
-        <div>Loading...</div>
-      )}
+      </div>
     </div>
   );
 };

@@ -1,0 +1,132 @@
+.tours-hero {
+  height: 60vh;
+  min-height: 400px;
+  background: linear-gradient(rgba(10, 10, 10, 0.6), rgba(10, 10, 10, 0.9)), url('../../assets/tour_us.png') center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.tours-hero-content h1 {
+  font-size: 4rem;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+
+.tours-hero-content p {
+  font-size: 1.2rem;
+  color: var(--white);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.tours-intro {
+  max-width: 800px;
+  margin: 0 auto 4rem;
+}
+
+.tours-intro h2 {
+  font-size: 2.5rem;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+}
+
+.tours-intro p {
+  font-size: 1.1rem;
+  color: var(--white-muted);
+}
+
+.tours-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
+  margin-bottom: 5rem;
+}
+
+.tour-card {
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.tour-img-container, .tour-img-placeholder {
+  height: 250px;
+  width: 100%;
+  border-bottom: 1px solid var(--glass-border);
+  overflow: hidden;
+}
+
+.tour-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.tour-card:hover .tour-img {
+  transform: scale(1.05);
+}
+
+.tour-img-placeholder {
+  background: var(--black-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tour-info {
+  padding: 2rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.tour-info h3 {
+  font-size: 1.5rem;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+
+.tour-info p {
+  color: var(--white-muted);
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.tour-highlights {
+  border-top: 1px solid var(--glass-border);
+  padding-top: 1.5rem;
+}
+
+.tour-highlights li {
+  color: var(--white);
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.tours-cta {
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  padding: 4rem 2rem;
+  border-radius: 8px;
+}
+
+.tours-cta h3 {
+  font-size: 2rem;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+
+.tours-cta p {
+  color: var(--white-muted);
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  .tours-hero-content h1 {
+    font-size: 3rem;
+  }
+}
